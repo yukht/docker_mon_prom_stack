@@ -13,4 +13,7 @@ TELEGRAM_TOKEN - токен, полученный при создании бот
 ***Необходимо создать следующие директории для запуска контейнеров***
 
 ``mkdir data grafana alertmanager/data``
-``chmod 775 data grafana alertmanager/data``
+
+``chmod 775 data grafana``
+
+``chmod 777 alertmanager/data``
