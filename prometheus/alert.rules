@@ -1,0 +1,35 @@
+groups: 
+- name: example
+  rules:
+  - alert: PrometheusTargetMissing
+    expr: up == 0
+    for: 0m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Prometheus target missing (instance {{ $labels.instance }})"
+      description: "A Prometheus target has disappeared. An exporter might be crashed. VALUE = {{ $value }}  LABELS: {{ $labels }}"
+
+  - alert: BlackBoxChangedStatusCode
+    expr: changes (probe_http_status_code[3m]) != 0
+    labels:
+      severity: critical
+    annotations:
+      summary: "BlackBox: http status code changed (instance {{ $labels.instance }})"
+      description: "Status code changed. CHANGE VALUE (1 minute) = {{ $value }}  LABELS: {{ $labels }}"
+
+  - alert: BlackBoxDuration0.23sec
+    expr: sum(probe_http_duration_seconds) > 0.23
+    labels:
+      severity: critical
+    annotations:
+      summary: "BlackBox http probe duration greater than 0.23 (test) seconds: (instance {{ $labels.instance }})"
+      description: "HTTP response is over 0.23 (test) seconds. Check your web server load. VALUE = {{ $value }}  LABELS: {{ $labels }}"
+
+  - alert: PrometheusUptime
+    expr: (node_time_seconds- node_boot_time_seconds) < 600
+    labels:
+      severity: critical
+    annotations:
+      summary: "Server uptime is less than 120 seconds: (instance {{ $labels.instance }})"
+      description: "Server uptime is less than 120 seconds: VALUE = {{ $value }}  LABELS: {{ $labels }}"
