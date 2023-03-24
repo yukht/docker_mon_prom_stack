@@ -17,3 +17,8 @@ TELEGRAM_TOKEN - токен, полученный при создании бот
 ``chmod 775 data grafana``
 
 ``chmod 777 alertmanager/data``
+
+***Для добавления datasource Prometheus указывайте в Grafana имя контейнера***
+
+``http://prometheus:9090``
+
