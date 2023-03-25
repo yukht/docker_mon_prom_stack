@@ -24,7 +24,8 @@ TELEGRAM_TOKEN - токен, полученный при создании бот
 
 ``http://prometheus:9090``
 
-Для ознакомления с возможностями Grafana по визуализации значений метрик можно скачать готовые дашборды
+Для ознакомления с возможностями Grafana по визуализации значений метрик можно скачать готовые дашборды (устанавливаются через Dashboards -> Import)
 
-grafana node exporter dashboard
-grafana blackbox dashboard
+*grafana node exporter dashboard*
+
+*grafana blackbox dashboard*
